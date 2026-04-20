@@ -60,10 +60,17 @@ function App() {
       <header className="hero">
         <div className="hero-text">
           <p className="hero-eyebrow">Data Science &amp; Software Engineering</p>
-          <h1 className="hero-name">
-            Arthur Lins<br />da Gama
-          </h1>
-          <p className="hero-role">CESAR School — Recife, Brasil</p>
+          <div className="hero-name-row">
+            <div className="hero-photo-wrap hero-photo-wrap--mobile">
+              <img src={foto} alt="Arthur Lins da Gama" className="hero-photo" />
+            </div>
+            <div>
+              <h1 className="hero-name">
+                Arthur Lins<br />da Gama
+              </h1>
+              <p className="hero-role">CESAR School — Recife, Brasil</p>
+            </div>
+          </div>
           <p className="hero-desc">
             Especialista em Machine Learning e desenvolvimento de sistemas. Transformo dados
             em decisões estratégicas através de pipelines robustos e modelos preditivos.
@@ -83,7 +90,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="hero-photo-wrap">
+        <div className="hero-photo-wrap hero-photo-wrap--desktop">
           <img src={foto} alt="Arthur Lins da Gama" className="hero-photo" />
         </div>
       </header>
