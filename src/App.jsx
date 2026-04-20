@@ -38,7 +38,7 @@ function App() {
         <section className="mb-20">
           <h2 className="text-2xl font-bold mb-6 border-l-4 border-blue-600 pl-4">Sobre o Portfólio</h2>
           <p className="text-gray-700 leading-relaxed max-w-3xl">
-            Este portfólio documenta minha trajetória técnica no último semestre de Ciência da Computação. 
+            Este portfólio documenta minha trajetória técnica no curso de Ciência da Computação na CESAR School. 
             Aqui apresento projetos que unem análise de dados, machine learning e desenvolvimento full-stack, 
             focando na resolução de problemas reais de mercado e academia.
           </p>
