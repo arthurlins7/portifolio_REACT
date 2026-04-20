@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { projects } from './data/projects';
-import { FaGithub, FaLinkedin, FaEnvelope, FaCodeBranch, FaServer, FaChartLine, FaFilePdf, FaXmark } from "react-icons/fa6";
+import { projects, experience, education, skills } from './data/projects';
+import { FaGithub, FaLinkedin, FaEnvelope, FaCodeBranch, FaServer, FaChartLine, FaFilePdf, FaXmark, FaBriefcase, FaGraduationCap } from "react-icons/fa6";
 import foto from './data/fotoperfil.png';
 import './App.css';
 
@@ -28,11 +28,7 @@ function PdfModal({ pdf, onClose }) {
           </button>
         </div>
         <div className="modal-body">
-          <iframe
-            src={pdf.file}
-            title={pdf.label}
-            className="modal-iframe"
-          />
+          <iframe src={pdf.file} title={pdf.label} className="modal-iframe" />
         </div>
       </div>
     </div>
@@ -50,8 +46,9 @@ function App() {
         <div className="navbar-inner">
           <span className="navbar-logo">Arthur Lins da Gama</span>
           <div className="navbar-links">
-            <a href="#sobre" className="navbar-link">Sobre</a>
-            <a href="#projetos" className="navbar-link">Projetos</a>
+            <a href="#projetos"    className="navbar-link">Projetos</a>
+            <a href="#experiencia" className="navbar-link">Experiência</a>
+            <a href="#formacao"    className="navbar-link">Formação</a>
             <a href="mailto:gamaarthur08@gmail.com" className="navbar-cta">
               <FaEnvelope /> Contato
             </a>
@@ -93,28 +90,7 @@ function App() {
 
       <main className="main">
 
-        {/* ── About ── */}
-        <section id="sobre" className="section">
-          <div className="container">
-            <p className="section-label">Sobre</p>
-            <h2 className="section-title">Sobre o Portfólio</h2>
-            <div className="about-text">
-              <p>
-                Este portfólio documenta minha evolução técnica e acadêmica na{' '}
-                <strong>CESAR School</strong>, onde unifico o rigor da{' '}
-                <strong>Ciência da Computação</strong> com a aplicação prática em{' '}
-                <strong>Ciência de Dados</strong>.
-              </p>
-              <p>
-                Meu foco é resolver problemas reais de mercado através da extração de valor
-                dos dados, construindo pipelines robustos, treinando modelos preditivos e
-                empacotando essas soluções em aplicações interativas.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Projects ── */}
+        {/* ── Projects (foco principal) ── */}
         <section id="projetos" className="section">
           <div className="container">
             <p className="section-label">Projetos</p>
@@ -179,17 +155,15 @@ function App() {
 
                     <div className="project-footer">
                       {project.pdfs && project.pdfs.map((pdf, i) => (
-                        <button
-                          key={i}
-                          className="pdf-btn"
-                          onClick={() => setActivePdf(pdf)}
-                        >
+                        <button key={i} className="pdf-btn" onClick={() => setActivePdf(pdf)}>
                           <FaFilePdf /> {pdf.label}
                         </button>
                       ))}
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="github-btn">
-                        <FaGithub /> Ver Código
-                      </a>
+                      {project.link && (
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="github-btn">
+                          <FaGithub /> Ver Código
+                        </a>
+                      )}
                     </div>
                   </div>
                 </article>
@@ -197,17 +171,96 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* ── Experience ── */}
+        <section id="experiencia" className="section section--secondary">
+          <div className="container">
+            <p className="section-label">Experiência</p>
+            <h2 className="section-title section-title--sm">Experiência Profissional</h2>
+            <div className="exp-list">
+              {experience.map((item, i) => (
+                <div key={i} className="exp-item">
+                  <div className="exp-left">
+                    <div className="exp-icon"><FaBriefcase /></div>
+                    <div className="exp-line" />
+                  </div>
+                  <div className="exp-content">
+                    <div className="exp-header">
+                      <div>
+                        <span className="exp-company">{item.company}</span>
+                        <span className="exp-role">{item.role}</span>
+                      </div>
+                      <span className="exp-period">{item.period}</span>
+                    </div>
+                    <ul className="exp-bullets">
+                      {item.bullets.map((b, j) => (
+                        <li key={j}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Education ── */}
+        <section id="formacao" className="section section--secondary">
+          <div className="container">
+            <p className="section-label">Formação</p>
+            <h2 className="section-title section-title--sm">Formação Acadêmica</h2>
+            <div className="edu-list">
+              {education.map((item, i) => (
+                <div key={i} className="edu-item">
+                  <div className="edu-icon"><FaGraduationCap /></div>
+                  <div className="edu-content">
+                    <div className="edu-header">
+                      <span className="edu-institution">{item.institution}</span>
+                      <span className="edu-period">{item.period}</span>
+                    </div>
+                    <p className="edu-degree">{item.degree}</p>
+                    <p className="edu-note">{item.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Skills ── */}
+        <section className="section section--secondary">
+          <div className="container">
+            <p className="section-label">Skills</p>
+            <h2 className="section-title section-title--sm">Tecnologias &amp; Ferramentas</h2>
+            <div className="skills-grid">
+              {skills.map((group, i) => (
+                <div key={i} className="skill-group">
+                  <h3 className="skill-category">{group.category}</h3>
+                  <div className="skill-tags">
+                    {group.items.map((skill, j) => (
+                      <span key={j} className="skill-tag">{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
 
       {/* ── Footer ── */}
       <footer className="footer">
         <div className="footer-inner">
           <p className="footer-copy">© 2026 Arthur Lins da Gama. Todos os direitos reservados.</p>
-          <p className="footer-tech">React &amp; Tailwind CSS</p>
+          <div className="footer-links">
+            <a href="https://github.com/arthurlins7" target="_blank" rel="noopener noreferrer" className="footer-link"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/arthur-lins-da-gama-bbb682207" target="_blank" rel="noopener noreferrer" className="footer-link"><FaLinkedin /></a>
+            <a href="mailto:gamaarthur08@gmail.com" className="footer-link"><FaEnvelope /></a>
+          </div>
         </div>
       </footer>
 
-      {/* ── PDF Modal ── */}
       {activePdf && <PdfModal pdf={activePdf} onClose={() => setActivePdf(null)} />}
     </div>
   );

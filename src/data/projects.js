@@ -41,6 +41,30 @@ export const projects = [
     link: "https://github.com/arthurlins7/DeepLearning_TweetsClassification.git"
   },
   {
+    title: "Previsão de Demanda: Bike Sharing",
+    description: "Análise preditiva de aluguel de bicicletas utilizando modelos de regressão para otimização de frota.",
+    stack: "Python, Scikit-Learn, SVR, Pandas",
+    image: "",
+    narrative: {
+      problem: "Prever a demanda de aluguel para garantir frota disponível nas estações e evitar tanto excesso quanto escassez de bicicletas.",
+      solution: "Teste comparativo de múltiplos modelos de regressão. O SVR (Support Vector Regression) se destacou, entregando as melhores métricas de precisão frente aos demais algoritmos avaliados.",
+      result: null
+    },
+    link: "https://github.com/arthurlins7/Bike_sharing.git"
+  },
+  {
+    title: "Previsão de Casos de Sífilis Congênita",
+    description: "Pipeline de dados com impacto social na saúde pública usando dados do DataSUS.",
+    stack: "Python, Machine Learning, SMOTE, Pandas",
+    image: "",
+    narrative: {
+      problem: "Dados do sistema de saúde pública são altamente desbalanceados, o que prejudica a capacidade dos modelos de aprender sobre as classes minoritárias (casos positivos).",
+      solution: "Uso de SMOTE (Synthetic Minority Over-sampling Technique) para balancear as classes e permitir que o modelo aprendesse os padrões das ocorrências com eficácia.",
+      result: null
+    },
+    link: ""
+  },
+  {
     title: "Sistema de Solicitação de Serviços de TI",
     description: "Aplicação front-end baseada em componentes (SPA) para gerenciamento interativo de chamados de suporte técnico.",
     stack: "ReactJS, JavaScript, HTML, CSS",
@@ -51,5 +75,48 @@ export const projects = [
       result: "A entrega de uma aplicação rápida, modular e livre de recarregamentos (Single Page Application), facilitando a escalabilidade para a equipe de infraestrutura."
     },
     link: "https://github.com/arthurlins7/Projeto_REACT.git"
+  }
+];
+
+export const experience = [
+  {
+    company: "Gummy Original",
+    role: "Estagiário de BI e Operações",
+    period: "2024 — 2025 · +1 ano",
+    bullets: [
+      "Automação do controle de Supply Chain, eliminando processos manuais recorrentes em planilhas Excel.",
+      "Desenvolvimento de scripts em TypeScript para integração e transformação de dados operacionais.",
+      "Criação de dashboards em Power BI para tomada de decisão da diretoria (CEO/COO).",
+    ]
+  }
+];
+
+export const education = [
+  {
+    institution: "CESAR School",
+    degree: "Bacharelado em Ciência da Computação",
+    period: "2021 — Atual",
+    note: "Foco em Data Science e Machine Learning."
+  },
+  {
+    institution: "ILAC International College",
+    degree: "Diploma em Service Essentials for Business",
+    period: "Toronto, Canadá",
+    note: "Vivência internacional · Inglês Full Professional."
+  }
+];
+
+export const skills = [
+  {
+    category: "Data Science & ML",
+    items: ["Python", "Scikit-Learn", "XGBoost", "TensorFlow / Keras", "LSTM", "SMOTE", "NLP", "SVR"]
+  },
+  {
+    category: "Análise & BI",
+    items: ["Pandas", "Power BI", "Análise Exploratória", "Engenharia de Features", "SQL"]
+  },
+  {
+    category: "Desenvolvimento",
+    items: ["React", "JavaScript", "TypeScript", "HTML / CSS", "Git", "REST APIs"]
   }
 ];
