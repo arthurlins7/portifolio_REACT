@@ -70,8 +70,7 @@ function App() {
           </div>
           <p className="hero-role">CESAR School — Recife, Brasil</p>
           <p className="hero-desc">
-            Especialista em Machine Learning e desenvolvimento de sistemas. Transformo dados
-            em decisões estratégicas através de pipelines robustos e modelos preditivos.
+            Unindo visão de negócios e desenvolvimento de sistemas. Utilizo Machine Learning e pipelines de dados para resolver problemas complexos e apoiar decisões estratégicas.
           </p>
           <div className="hero-actions">
             <a href="#projetos" className="btn-primary">Ver Projetos</a>
