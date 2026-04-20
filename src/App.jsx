@@ -1,139 +1,214 @@
+import { useState, useEffect } from 'react';
 import { projects } from './data/projects';
-import { FaGithub, FaLinkedin, FaEnvelope, FaCodeBranch, FaServer, FaChartLine } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaEnvelope, FaCodeBranch, FaServer, FaChartLine, FaFilePdf, FaXmark } from "react-icons/fa6";
+import foto from './data/fotoperfil.png';
+import './App.css';
+
+function PdfModal({ pdf, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <div className="modal-title-wrap">
+            <FaFilePdf className="modal-pdf-icon" />
+            <span className="modal-title">{pdf.label}</span>
+          </div>
+          <button className="modal-close" onClick={onClose} aria-label="Fechar">
+            <FaXmark />
+          </button>
+        </div>
+        <div className="modal-body">
+          <iframe
+            src={pdf.file}
+            title={pdf.label}
+            className="modal-iframe"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
+  const [activePdf, setActivePdf] = useState(null);
+
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      
-      {/* Hero Section (Modo Escuro) */}
-      <header className="bg-slate-900 text-white pt-20 pb-24 px-6 relative overflow-hidden">
-        {/* Efeitos visuais de fundo */}
-        <div className="absolute top-[-50%] left-[-10%] w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-[-20%] right-[-5%] w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-10">
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
-              Arthur Lins da Gama
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-400 font-medium mb-6">
-              Data Science & Software Engineering
-            </p>
-            <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-8">
-              Transformando dados complexos em decisões estratégicas. Especialista em Machine Learning, construção de modelos preditivos e desenvolvimento de sistemas escaláveis.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#projetos" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                Ver Projetos
-              </a>
-              <a href="mailto:gamaarthur08@gmail.com" className="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center gap-2">
-                <FaEnvelope /> Contato
-              </a>
-            </div>
+    <div>
+
+      {/* ── Navbar ── */}
+      <nav className="navbar">
+        <div className="navbar-inner">
+          <span className="navbar-logo">Arthur Lins da Gama</span>
+          <div className="navbar-links">
+            <a href="#sobre" className="navbar-link">Sobre</a>
+            <a href="#projetos" className="navbar-link">Projetos</a>
+            <a href="mailto:gamaarthur08@gmail.com" className="navbar-cta">
+              <FaEnvelope /> Contato
+            </a>
           </div>
-          
-          <div className="flex md:flex-col gap-6 text-3xl text-slate-400">
-            <a href="https://github.com/arthurlins7" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+        </div>
+      </nav>
+
+      {/* ── Hero ── */}
+      <header className="hero">
+        <div className="hero-text">
+          <p className="hero-eyebrow">Data Science &amp; Software Engineering</p>
+          <h1 className="hero-name">
+            Arthur Lins<br />da Gama
+          </h1>
+          <p className="hero-role">CESAR School — Recife, Brasil</p>
+          <p className="hero-desc">
+            Especialista em Machine Learning e desenvolvimento de sistemas. Transformo dados
+            em decisões estratégicas através de pipelines robustos e modelos preditivos.
+          </p>
+          <div className="hero-actions">
+            <a href="#projetos" className="btn-primary">Ver Projetos</a>
+            <a href="mailto:gamaarthur08@gmail.com" className="btn-secondary">
+              <FaEnvelope /> Contato
+            </a>
+          </div>
+          <div className="hero-socials">
+            <a href="https://github.com/arthurlins7" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
               <FaGithub />
             </a>
-            <a href="https://www.linkedin.com/in/arthur-lins-da-gama-bbb682207" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">
+            <a href="https://www.linkedin.com/in/arthur-lins-da-gama-bbb682207" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
           </div>
         </div>
+        <div className="hero-photo-wrap">
+          <img src={foto} alt="Arthur Lins da Gama" className="hero-photo" />
+        </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-16">
-        
-        {/* Sobre Mim Section */}
-        <section className="mb-24">
-          <h2 className="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4 text-slate-800">Sobre o Portfólio</h2>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-slate-700 leading-relaxed text-lg">
-            <p>
-              Este portfólio documenta minha evolução técnica e acadêmica na CESAR School, onde unifico o rigor da <strong>Ciência da Computação</strong> com a aplicação prática em <strong>Ciência de Dados</strong>.
-            </p>
-            <p className="mt-4">
-              Meu foco é resolver problemas reais de mercado através da extração de valor dos dados, construindo pipelines robustos, treinando modelos preditivos e empacotando essas soluções em aplicações interativas.
-            </p>
+      <main className="main">
+
+        {/* ── About ── */}
+        <section id="sobre" className="section">
+          <div className="container">
+            <p className="section-label">Sobre</p>
+            <h2 className="section-title">Sobre o Portfólio</h2>
+            <div className="about-text">
+              <p>
+                Este portfólio documenta minha evolução técnica e acadêmica na{' '}
+                <strong>CESAR School</strong>, onde unifico o rigor da{' '}
+                <strong>Ciência da Computação</strong> com a aplicação prática em{' '}
+                <strong>Ciência de Dados</strong>.
+              </p>
+              <p>
+                Meu foco é resolver problemas reais de mercado através da extração de valor
+                dos dados, construindo pipelines robustos, treinando modelos preditivos e
+                empacotando essas soluções em aplicações interativas.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Projects Grid */}
-        <section id="projetos">
-          <h2 className="text-3xl font-bold mb-10 border-l-4 border-blue-600 pl-4 text-slate-800">Cases em Destaque</h2>
-          <div className="grid gap-12">
-            {projects.map((project, index) => (
-              <article key={index} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl hover:border-blue-200 transition-all duration-300">
-                
-                {/* Imagem do Projeto (Se houver) */}
-                {project.image && (
-                  <div className="w-full h-64 bg-slate-100 border-b border-slate-200 overflow-hidden flex items-center justify-center">
-                    <img src={project.image} alt={`Visualização do projeto ${project.title}`} className="object-cover w-full h-full opacity-90 hover:opacity-100 transition-opacity" />
-                  </div>
-                )}
+        {/* ── Projects ── */}
+        <section id="projetos" className="section">
+          <div className="container">
+            <p className="section-label">Projetos</p>
+            <h2 className="section-title">Cases em Destaque</h2>
+            <div className="projects-list">
+              {projects.map((project, index) => (
+                <article
+                  key={index}
+                  className={`project-card${project.featured ? ' project-card--featured' : ''}`}
+                >
+                  {project.featured && (
+                    <div className="featured-badge">Trabalho de Conclusão de Curso</div>
+                  )}
 
-                <div className="p-8">
-                  <div className="mb-6">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{project.title}</h3>
-                    <div className="flex flex-wrap gap-2">
+                  {project.image && (
+                    <div className="project-img-wrap">
+                      <img src={project.image} alt={`${project.title} preview`} className="project-img" />
+                    </div>
+                  )}
+
+                  <div className="project-body">
+                    <div className="project-header">
+                      <h3 className="project-title">{project.title}</h3>
+                      <span className="project-num">0{index + 1}</span>
+                    </div>
+
+                    <div className="project-stack">
                       {project.stack.split(',').map((tech, i) => (
-                        <span key={i} className="bg-slate-100 text-slate-700 px-3 py-1.5 rounded-md text-xs font-bold tracking-wide uppercase">
-                          {tech.trim()}
-                        </span>
+                        <span key={i} className="tech-tag">{tech.trim()}</span>
                       ))}
                     </div>
-                  </div>
-                  
-                  <p className="text-slate-600 text-lg mb-10 border-l-2 border-slate-200 pl-4 italic">
-                    {project.description}
-                  </p>
-                  
-                  <div className="grid md:grid-cols-3 gap-6 text-sm mb-10">
-                    <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                      <div className="flex items-center gap-2 text-slate-500 mb-3">
-                        <FaServer className="text-lg" /> 
-                        <h4 className="font-bold uppercase tracking-wider text-xs">O Desafio</h4>
-                      </div>
-                      <p className="text-slate-700 leading-relaxed">{project.narrative.problem}</p>
-                    </div>
-                    
-                    <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                      <div className="flex items-center gap-2 text-blue-600 mb-3">
-                        <FaCodeBranch className="text-lg" /> 
-                        <h4 className="font-bold uppercase tracking-wider text-xs">A Abordagem</h4>
-                      </div>
-                      <p className="text-slate-700 leading-relaxed">{project.narrative.solution}</p>
-                    </div>
 
-                    {project.narrative.result && (
-                      <div className="bg-emerald-50 p-6 rounded-xl border border-emerald-100">
-                        <div className="flex items-center gap-2 text-emerald-600 mb-3">
-                          <FaChartLine className="text-lg" /> 
-                          <h4 className="font-bold uppercase tracking-wider text-xs">O Impacto</h4>
+                    <p className="project-desc">{project.description}</p>
+
+                    <div className="narrative-grid">
+                      <div className="narrative-card">
+                        <div className="narrative-header">
+                          <FaServer className="narrative-icon" />
+                          <h4 className="narrative-label">O Desafio</h4>
                         </div>
-                        <p className="text-slate-700 leading-relaxed">{project.narrative.result}</p>
+                        <p className="narrative-text">{project.narrative.problem}</p>
                       </div>
-                    )}
-                  </div>
 
-                  <div className="pt-6 border-t border-slate-100 flex justify-end">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                      <FaGithub className="text-xl" /> Ver Código Completo
-                    </a>
+                      <div className="narrative-card">
+                        <div className="narrative-header">
+                          <FaCodeBranch className="narrative-icon" />
+                          <h4 className="narrative-label">A Abordagem</h4>
+                        </div>
+                        <p className="narrative-text">{project.narrative.solution}</p>
+                      </div>
+
+                      {project.narrative.result && (
+                        <div className="narrative-card">
+                          <div className="narrative-header">
+                            <FaChartLine className="narrative-icon" />
+                            <h4 className="narrative-label">O Impacto</h4>
+                          </div>
+                          <p className="narrative-text">{project.narrative.result}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="project-footer">
+                      {project.pdfs && project.pdfs.map((pdf, i) => (
+                        <button
+                          key={i}
+                          className="pdf-btn"
+                          onClick={() => setActivePdf(pdf)}
+                        >
+                          <FaFilePdf /> {pdf.label}
+                        </button>
+                      ))}
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="github-btn">
+                        <FaGithub /> Ver Código
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-slate-900 text-white py-12 mt-20 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-slate-400">
-          <p>© 2026 Arthur Lins da Gama. Todos os direitos reservados.</p>
-          <p className="mt-2 md:mt-0 text-sm">Desenvolvido com React & Tailwind CSS.</p>
+      {/* ── Footer ── */}
+      <footer className="footer">
+        <div className="footer-inner">
+          <p className="footer-copy">© 2026 Arthur Lins da Gama. Todos os direitos reservados.</p>
+          <p className="footer-tech">React &amp; Tailwind CSS</p>
         </div>
       </footer>
+
+      {/* ── PDF Modal ── */}
+      {activePdf && <PdfModal pdf={activePdf} onClose={() => setActivePdf(null)} />}
     </div>
   );
 }

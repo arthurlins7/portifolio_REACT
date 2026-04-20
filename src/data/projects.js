@@ -1,9 +1,14 @@
 export const projects = [
   {
-    title: "Machine Learning em Municípios do Nordeste (TCC)",
-    description: "Aplicação de modelos preditivos para análise socioeconômica e identificação de oportunidades de investimento.",
+    title: "Machine Learning em Municípios do Nordeste",
+    description: "Aplicação de Técnicas de Machine Learning na Identificação de Municípios do Nordeste Brasileiro com Maior Potencial para Atração de Investimentos a Partir de Dados Socioeconômicos",
     stack: "Python, XGBoost, Scikit-Learn, Pandas",
-    image: "", // Exemplo: "/assets/tcc-grafico.png"
+    image: "",
+    featured: true,
+    pdfs: [
+      { label: "Monografia Completa", file: "/tcc-monografia.pdf" },
+      { label: "Artigo Científico",   file: "/tcc-algoritmos.pdf" },
+    ],
     narrative: {
       problem: "A dificuldade em avaliar e cruzar indicadores socioeconômicos dispersos para identificar quais municípios do Nordeste apresentam maior potencial para investimentos e desenvolvimento.",
       solution: "Desenvolvimento de um pipeline de dados com engenharia de features e treinamento de modelos de Machine Learning supervisionados para mapear o cenário dos municípios.",
