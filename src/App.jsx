@@ -64,13 +64,11 @@ function App() {
             <div className="hero-photo-wrap hero-photo-wrap--mobile">
               <img src={foto} alt="Arthur Lins da Gama" className="hero-photo" />
             </div>
-            <div>
-              <h1 className="hero-name">
-                Arthur Lins<br />da Gama
-              </h1>
-              <p className="hero-role">CESAR School — Recife, Brasil</p>
-            </div>
+            <h1 className="hero-name">
+              Arthur Lins<br />da Gama
+            </h1>
           </div>
+          <p className="hero-role">CESAR School — Recife, Brasil</p>
           <p className="hero-desc">
             Especialista em Machine Learning e desenvolvimento de sistemas. Transformo dados
             em decisões estratégicas através de pipelines robustos e modelos preditivos.

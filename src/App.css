@@ -706,8 +706,8 @@ strong { font-weight: 500; color: var(--text); }
     gap: 16px;
     margin-bottom: 18px;
   }
-  .hero-name { margin-bottom: 6px; }
-  .hero-role { margin-bottom: 0; }
+  .hero-name { font-size: 1.55rem; margin-bottom: 0; }
+  .hero-role { margin-bottom: 18px; }
   .skills-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
