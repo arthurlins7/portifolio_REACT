@@ -163,6 +163,11 @@ function App() {
                           <FaFilePdf /> {pdf.label}
                         </button>
                       ))}
+                      {project.dashboard && (
+                        <a href={project.dashboard} target="_blank" rel="noopener noreferrer" className="github-btn">
+                          <FaChartLine /> Ver Dashboard
+                        </a>
+                      )}
                       {project.link && (
                         <a href={project.link} target="_blank" rel="noopener noreferrer" className="github-btn">
                           <FaGithub /> Ver Código

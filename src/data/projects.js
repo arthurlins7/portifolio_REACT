@@ -24,9 +24,10 @@ export const projects = [
     narrative: {
       problem: "E-commerces acumulam milhões de transações sem saber quem são seus clientes de verdade — quais estão prestes a sair, quais podem gastar mais, quais já foram perdidos. Sem segmentação, campanhas de marketing são genéricas e desperdiçam orçamento.",
       solution: "ETL sobre 1M+ transações reais (UCI Online Retail II), cálculo de scores RFM com normalização logarítmica, clustering K-Means com seleção de k via Elbow Method e Silhouette Score. Cada cluster foi traduzido em uma persona de negócio com ação, métrica de sucesso e impacto financeiro estimado.",
-      result: "5.878 clientes segmentados em 4 personas. £2,7M de potencial incremental identificado sobre £17,7M de faturamento histórico. Dashboard em produção: https://geek-commerce-segments.vercel.app"
+      result: "5.878 clientes segmentados em 4 personas. £2,7M de potencial incremental identificado sobre £17,7M de faturamento histórico."
     },
-    link: "https://github.com/arthurlins7/GeekCommerce-Segments"
+    link: "https://github.com/arthurlins7/GeekCommerce-Segments",
+    dashboard: "https://geek-commerce-segments.vercel.app"
   },
   {
     title: "Detecção de Fraudes em Cartões de Crédito",
