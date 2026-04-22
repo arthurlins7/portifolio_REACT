@@ -17,6 +17,18 @@ export const projects = [
     link: "https://github.com/arthurlins7/Machine-Learning-aplicado-a-munic-pios-do-Nordeste.git"
   },
   {
+    title: "GeekCommerce Segments",
+    description: "Pipeline end-to-end de segmentação de clientes com RFM + K-Means, playbook de campanhas com impacto financeiro estimado e dashboard interativo com deploy em produção.",
+    stack: "Python, Scikit-Learn, FastAPI, Next.js, Clustering, RFM",
+    image: "",
+    narrative: {
+      problem: "E-commerces acumulam milhões de transações sem saber quem são seus clientes de verdade — quais estão prestes a sair, quais podem gastar mais, quais já foram perdidos. Sem segmentação, campanhas de marketing são genéricas e desperdiçam orçamento.",
+      solution: "ETL sobre 1M+ transações reais (UCI Online Retail II), cálculo de scores RFM com normalização logarítmica, clustering K-Means com seleção de k via Elbow Method e Silhouette Score. Cada cluster foi traduzido em uma persona de negócio com ação, métrica de sucesso e impacto financeiro estimado.",
+      result: "5.878 clientes segmentados em 4 personas. £2,7M de potencial incremental identificado sobre £17,7M de faturamento histórico. Dashboard em produção: https://geek-commerce-segments.vercel.app"
+    },
+    link: "https://github.com/arthurlins7/GeekCommerce-Segments"
+  },
+  {
     title: "Detecção de Fraudes em Cartões de Crédito",
     description: "Sistema de análise de anomalias para identificação de transações financeiras fraudulentas em cenários de Big Data.",
     stack: "Python, Análise de Dados, Machine Learning",
