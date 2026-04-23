@@ -6,8 +6,8 @@ export const projects = [
     image: "",
     featured: true,
     pdfs: [
-      { label: "Monografia Completa", file: "/tcc-monografia.pdf" },
-      { label: "Artigo Científico",   file: "/tcc-algoritmos.pdf" },
+      { label: "Artigo Científico", file: "/tcc-monografia.pdf" },
+      { label: "Apresentação em Slides",   file: "/tcc-algoritmos.pdf" },
     ],
     narrative: {
       problem: "A dificuldade em avaliar e cruzar indicadores socioeconômicos dispersos para identificar quais municípios do Nordeste apresentam maior potencial para investimentos e desenvolvimento.",

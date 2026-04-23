@@ -420,6 +420,10 @@ strong { font-weight: 500; color: var(--text); }
   justify-content: center;
   padding: 24px;
 }
+@media (max-width: 640px) {
+  .modal-overlay { padding: 16px; align-items: flex-end; }
+  .modal { border-radius: 12px 12px 10px 10px; }
+}
 .modal {
   background: var(--surface);
   border: 1px solid var(--hover);
@@ -450,6 +454,25 @@ strong { font-weight: 500; color: var(--text); }
   color: var(--subtle);
   letter-spacing: 0.02em;
 }
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.modal-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+.modal-action-btn:hover { color: var(--text); border-color: var(--hover); }
 .modal-close {
   display: flex;
   align-items: center;
@@ -470,6 +493,65 @@ strong { font-weight: 500; color: var(--text); }
   height: 100%;
   border: none;
   display: block;
+}
+/* Mobile modal */
+.modal--mobile {
+  height: auto;
+  max-height: 90vh;
+}
+.modal-mobile-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 24px 32px;
+  gap: 12px;
+  text-align: center;
+}
+.modal-mobile-icon {
+  font-size: 2.4rem;
+  color: var(--muted);
+}
+.modal-mobile-name {
+  font-size: 0.9rem;
+  color: var(--subtle);
+  font-family: var(--font-b);
+  margin: 0;
+}
+.modal-mobile-hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+.modal-mobile-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+}
+.modal-mobile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-family: var(--font-b);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.modal-mobile-btn:hover { opacity: 0.82; }
+.modal-mobile-btn--open {
+  background: var(--hover);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.modal-mobile-btn--download {
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
 }
 
 /* ── Section variants ── */

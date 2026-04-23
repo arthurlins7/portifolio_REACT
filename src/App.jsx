@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react';
 import { projects, experience, education, skills } from './data/projects';
-import { FaGithub, FaLinkedin, FaEnvelope, FaCodeBranch, FaServer, FaChartLine, FaFilePdf, FaXmark, FaBriefcase, FaGraduationCap } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaEnvelope, FaCodeBranch, FaServer, FaChartLine, FaFilePdf, FaXmark, FaBriefcase, FaGraduationCap, FaDownload, FaArrowUpRightFromSquare } from "react-icons/fa6";
 import foto from './data/fotoperfil.png';
 import './App.css';
 
 function PdfModal({ pdf, onClose }) {
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 640px)').matches);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
@@ -17,19 +26,43 @@ function PdfModal({ pdf, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className={`modal${isMobile ? ' modal--mobile' : ''}`} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-title-wrap">
             <FaFilePdf className="modal-pdf-icon" />
             <span className="modal-title">{pdf.label}</span>
           </div>
-          <button className="modal-close" onClick={onClose} aria-label="Fechar">
-            <FaXmark />
-          </button>
+          <div className="modal-actions">
+            <a href={pdf.file} download className="modal-action-btn" aria-label="Baixar PDF" title="Baixar">
+              <FaDownload />
+            </a>
+            <a href={pdf.file} target="_blank" rel="noreferrer" className="modal-action-btn" aria-label="Abrir em nova aba" title="Abrir em nova aba">
+              <FaArrowUpRightFromSquare />
+            </a>
+            <button className="modal-close" onClick={onClose} aria-label="Fechar">
+              <FaXmark />
+            </button>
+          </div>
         </div>
-        <div className="modal-body">
-          <iframe src={pdf.file} title={pdf.label} className="modal-iframe" />
-        </div>
+        {isMobile ? (
+          <div className="modal-mobile-body">
+            <FaFilePdf className="modal-mobile-icon" />
+            <p className="modal-mobile-name">{pdf.label}</p>
+            <p className="modal-mobile-hint">Visualização em PDF não é suportada em dispositivos móveis.</p>
+            <div className="modal-mobile-btns">
+              <a href={pdf.file} target="_blank" rel="noreferrer" className="modal-mobile-btn modal-mobile-btn--open">
+                <FaArrowUpRightFromSquare /> Abrir no navegador
+              </a>
+              <a href={pdf.file} download className="modal-mobile-btn modal-mobile-btn--download">
+                <FaDownload /> Baixar PDF
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="modal-body">
+            <iframe src={pdf.file} title={pdf.label} className="modal-iframe" />
+          </div>
+        )}
       </div>
     </div>
   );
