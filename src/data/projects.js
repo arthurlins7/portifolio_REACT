@@ -30,6 +30,19 @@ export const projects = [
     dashboard: "https://geek-commerce-segments.vercel.app"
   },
   {
+    title: "NBA Performance Signals",
+    description: "Pipeline end-to-end de detecção de anomalias de performance na NBA — identifica automaticamente quando jogadores estão abaixo do esperado e entrega um feed diário de alertas com deploy em produção e atualização automática.",
+    stack: "Python, FastAPI, Next.js, PostgreSQL, Anomaly Detection, NBA API",
+    image: "",
+    narrative: {
+      problem: "Times de analytics esportivos precisam identificar rapidamente quando um jogador está em queda de rendimento — seja em todas as métricas ou em uma dimensão específica. Fazer isso manualmente para centenas de jogadores por noite é inviável.",
+      solution: "Pipeline completo com 5 temporadas de boxscores da NBA via nba_api. Z-Score calculado por baseline acumulado da temporada (com fallback para a temporada anterior), separando quedas globais de quedas isoladas por métrica. Atualização automática diária via GitHub Actions todo dia às 6h.",
+      result: "Feed diário com dois tipos de alerta — queda global e queda isolada — com fotos dos jogadores, logos dos times via CDN oficial da NBA, MetricBars visuais mostrando cada métrica comparada à média da temporada e perfil histórico completo por jogador."
+    },
+    link: "https://github.com/arthurlins7/NBA_Perfomance_Signals.git",
+    dashboard: "https://nba-perfomance-signals.vercel.app"
+  },
+  {
     title: "Detecção de Fraudes em Cartões de Crédito",
     description: "Sistema de análise de anomalias para identificação de transações financeiras fraudulentas em cenários de Big Data.",
     stack: "Python, Análise de Dados, Machine Learning",
