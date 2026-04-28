@@ -139,7 +139,7 @@ function App() {
                   className={`project-card${project.featured ? ' project-card--featured' : ''}`}
                 >
                   {project.featured && (
-                    <div className="featured-badge">Trabalho de Conclusão de Curso</div>
+                    <div className="featured-badge">Main project</div>
                   )}
 
                   {project.image && (
