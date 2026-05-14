@@ -95,7 +95,6 @@ export const projects = [
     description: "Pipeline end-to-end de predição de inadimplência em cobranças mensais — engenharia de features com histórico comportamental, validação Out-of-Time e inteligência de negócio acionável.",
     stack: "Python, LightGBM, Scikit-Learn, Pandas, Feature Engineering",
     image: "",
-    featured: true,
     pdfs: [
       { label: "Inteligência de Negócio", file: "/inteligencia_negocios.pdf" },
     ],
