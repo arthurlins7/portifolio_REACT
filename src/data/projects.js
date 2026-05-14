@@ -91,17 +91,21 @@ export const projects = [
     link: ""
   },
   {
-    title: "Sistema de Solicitação de Serviços de TI",
-    description: "Aplicação front-end baseada em componentes (SPA) para gerenciamento interativo de chamados de suporte técnico.",
-    stack: "ReactJS, JavaScript, HTML, CSS",
+    title: "Modelo Preditivo de Inadimplência",
+    description: "Pipeline end-to-end de predição de inadimplência em cobranças mensais — engenharia de features com histórico comportamental, validação Out-of-Time e inteligência de negócio acionável.",
+    stack: "Python, LightGBM, Scikit-Learn, Pandas, Feature Engineering",
     image: "",
+    featured: true,
+    pdfs: [
+      { label: "Inteligência de Negócio", file: "/inteligencia_negocios.pdf" },
+    ],
     narrative: {
-      problem: "A desorganização e lentidão no registro, acompanhamento e triagem de requisições de suporte técnico em ambientes corporativos afetam diretamente a produtividade.",
-      solution: "Desenvolvimento de uma interface reativa que centraliza as solicitações e consome APIs, melhorando a fluidez na experiência do usuário final.",
-      result: "A entrega de uma aplicação rápida, modular e livre de recarregamentos (Single Page Application), facilitando a escalabilidade para a equipe de infraestrutura."
+      problem: "Empresa de crédito com 77 mil cobranças históricas precisava identificar, com antecedência, quais clientes teriam maior probabilidade de atrasar o pagamento em 5 ou mais dias — sem ação proativa, o time de cobrança precisaria abordar 100% da base.",
+      solution: "Pipeline completo com EDA, construção do target, engenharia de 29 features em 5 grupos (histórico comportamental, anomalias, cobrança atual, cadastral e info mensal) e modelo LightGBM treinado com validação Out-of-Time sobre 35 safras mensais. Todas as features históricas calculadas com shift(1) para garantir zero data leakage.",
+      result: "AUC-ROC de 0.9542 e KS de 0.7877 na validação OOT. Abordando 20% da base de maior risco, o modelo captura 92.9% dos inadimplentes — protegendo R$ 59M em volume financeiro com uma fração do esforço operacional."
     },
-    link: "https://github.com/arthurlins7/Projeto_REACT.git"
-  }
+    link: "https://github.com/arthurlins7/Modelo-preditivo-de-inadimplencia.git"
+  },
 ];
 
 export const experience = [
