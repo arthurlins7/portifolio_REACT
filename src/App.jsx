@@ -60,7 +60,7 @@ function PdfModal({ pdf, onClose }) {
           </div>
         ) : (
           <div className="modal-body">
-            <iframe src={pdf.file} title={pdf.label} className="modal-iframe" />
+            <embed src={pdf.file} type="application/pdf" className="modal-iframe" />
           </div>
         )}
       </div>

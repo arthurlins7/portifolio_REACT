@@ -42,6 +42,21 @@ export const projects = [
     link: "https://github.com/arthurlins7/NBA_Perfomance_Signals.git",
     dashboard: "https://nba-perfomance-signals.vercel.app"
   },
+    {
+    title: "Modelo Preditivo de Inadimplência",
+    description: "Pipeline end-to-end de predição de inadimplência em cobranças mensais — engenharia de features com histórico comportamental, validação Out-of-Time e inteligência de negócio acionável.",
+    stack: "Python, LightGBM, Scikit-Learn, Pandas, Feature Engineering",
+    image: "",
+    pdfs: [
+      { label: "Inteligência de Negócio", file: "/inteligencia_negocios.pdf" },
+    ],
+    narrative: {
+      problem: "Empresa de crédito com 77 mil cobranças históricas precisava identificar, com antecedência, quais clientes teriam maior probabilidade de atrasar o pagamento em 5 ou mais dias — sem ação proativa, o time de cobrança precisaria abordar 100% da base.",
+      solution: "Pipeline completo com EDA, construção do target, engenharia de 29 features em 5 grupos (histórico comportamental, anomalias, cobrança atual, cadastral e info mensal) e modelo LightGBM treinado com validação Out-of-Time sobre 35 safras mensais. Todas as features históricas calculadas com shift(1) para garantir zero data leakage.",
+      result: "AUC-ROC de 0.9542 e KS de 0.7877 na validação OOT. Abordando 20% da base de maior risco, o modelo captura 92.9% dos inadimplentes — protegendo R$ 59M em volume financeiro com uma fração do esforço operacional."
+    },
+    link: "https://github.com/arthurlins7/Modelo-preditivo-de-inadimplencia.git"
+  },
   {
     title: "Detecção de Fraudes em Cartões de Crédito",
     description: "Sistema de análise de anomalias para identificação de transações financeiras fraudulentas em cenários de Big Data.",
@@ -89,21 +104,6 @@ export const projects = [
       result: null
     },
     link: ""
-  },
-  {
-    title: "Modelo Preditivo de Inadimplência",
-    description: "Pipeline end-to-end de predição de inadimplência em cobranças mensais — engenharia de features com histórico comportamental, validação Out-of-Time e inteligência de negócio acionável.",
-    stack: "Python, LightGBM, Scikit-Learn, Pandas, Feature Engineering",
-    image: "",
-    pdfs: [
-      { label: "Inteligência de Negócio", file: "/inteligencia_negocios.pdf" },
-    ],
-    narrative: {
-      problem: "Empresa de crédito com 77 mil cobranças históricas precisava identificar, com antecedência, quais clientes teriam maior probabilidade de atrasar o pagamento em 5 ou mais dias — sem ação proativa, o time de cobrança precisaria abordar 100% da base.",
-      solution: "Pipeline completo com EDA, construção do target, engenharia de 29 features em 5 grupos (histórico comportamental, anomalias, cobrança atual, cadastral e info mensal) e modelo LightGBM treinado com validação Out-of-Time sobre 35 safras mensais. Todas as features históricas calculadas com shift(1) para garantir zero data leakage.",
-      result: "AUC-ROC de 0.9542 e KS de 0.7877 na validação OOT. Abordando 20% da base de maior risco, o modelo captura 92.9% dos inadimplentes — protegendo R$ 59M em volume financeiro com uma fração do esforço operacional."
-    },
-    link: "https://github.com/arthurlins7/Modelo-preditivo-de-inadimplencia.git"
   },
 ];
 
