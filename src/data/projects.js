@@ -48,7 +48,7 @@ export const projects = [
     stack: "Python, LightGBM, Scikit-Learn, Pandas, Feature Engineering",
     image: "",
     pdfs: [
-      { label: "Inteligência de Negócio", file: "/datarisk.pdf" },
+      { label: "Inteligência de Negócio", file: "/inteligencia_negocios.pdf" },
     ],
     narrative: {
       problem: "Empresa de crédito com 77 mil cobranças históricas precisava identificar, com antecedência, quais clientes teriam maior probabilidade de atrasar o pagamento em 5 ou mais dias — sem ação proativa, o time de cobrança precisaria abordar 100% da base.",
